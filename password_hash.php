@@ -1,12 +1,12 @@
 <?php
-
+//uzytkownik wprowadza hasło za pomoca pola input
 $input = 'ala ma kota';
-echo password_hash($input, PASSWORD_BCRYPT)."\n";
 
+//hasło zaostaje zaszyfrowane za pomoca komendy password_hash
+$hash =  password_hash($input, PASSWORD_BCRYPT)."\n";
 
-$hash = '$2y$10$Llme1nljLV2c6qmvyNj6y.Eov2J10.BMdQSUc6SI7i2tLJVXl49Nu';
-
-if (password_verify('1234', $hash)) {
+//porownujemy hash z wprowadzonym haslem
+if (password_verify($input, $hash)) {
     echo 'Password is valid!';
 } else {
     echo 'Invalid password.';
